@@ -10,7 +10,7 @@ const priceRanges = [
   { label: "> 500.000đ", min: 500000, max: Infinity }
 ];
 
-const Product = () => {
+const ProductsMan = () => {
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({
     types: "",
@@ -26,7 +26,7 @@ const Product = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("http://localhost:5000/api/products/man")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error("API error:", err));
@@ -72,7 +72,7 @@ const Product = () => {
           </button>
           {dropdownOpen.type && (
             <div className="p-dropdown-menu no-checkbox">
-              {["Hoodie", "Khoác", "Phao"].map((type) => (
+              {["Áo Hoodie Nam", "Áo Khoác Gió", "Áo Phao Nam"].map((type) => (
                 <div
                   key={type}
                   className={`p-dropdown-option ${filters.types === type ? "active" : ""}`}
@@ -96,7 +96,7 @@ const Product = () => {
           </button>
           {dropdownOpen.color && (
             <div className="p-dropdown-menu no-checkbox">
-              {["Đen", "Xám", "Đỏ"].map((color) => (
+              {["Đen", "Xám", "Đỏ", "Trắng", "Xanh", "Vàng"].map((color) => (
                 <div
                   key={color}
                   className={`p-dropdown-option ${filters.colors === color ? "active" : ""}`}
@@ -178,4 +178,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default ProductsMan;

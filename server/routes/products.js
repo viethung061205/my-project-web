@@ -1,25 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const Product = require("../models/Product");
+const ManProduct = require("../models/ManProduct");
+const WomanProduct = require("../models/WomanProduct");
 
-// GET: /api/products
-router.get("/", async (req, res) => {
+// /api/products/man
+router.get("/man", async (req, res) => {
   try {
-    const products = await Product.find();
+    const products = await ManProduct.find();
     res.json(products);
   } catch (err) {
-    res.status(500).json({ error: "Lỗi khi truy vấn sản phẩm" });
+    res.status(500).json({ error: err.message });
   }
 });
 
-// POST: /api/products (tạo sản phẩm mới nếu muốn)
-router.post("/", async (req, res) => {
+// /api/products/woman
+router.get("/woman", async (req, res) => {
   try {
-    const newProduct = new Product(req.body);
-    await newProduct.save();
-    res.status(201).json(newProduct);
+    const products = await WomanProduct.find();
+    res.json(products);
   } catch (err) {
-    res.status(500).json({ error: "Lỗi khi thêm sản phẩm" });
+    res.status(500).json({ error: err.message });
   }
 });
 

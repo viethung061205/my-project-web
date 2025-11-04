@@ -14,8 +14,8 @@ function Navbar(){
             </div>    
 
             <div className="navbar-links">
-                <Link to="/products">NAM</Link>
-                <Link to="/products">NỮ</Link>
+                <Link to="/products/man">NAM</Link>
+                <Link to="/products/woman">NỮ</Link>
                 <Link to="/products">THỂ THAO</Link>
             </div>
             
