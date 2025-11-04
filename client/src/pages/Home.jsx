@@ -66,7 +66,7 @@ export default function Home() {
 
     <div className="gender-buttons">
         <button className={gender === 'male' ? 'active' : ''} onClick={() => setGender('male')}>NAM</button>
-        <button className={gender === 'female' ? 'active' : ''} onClick={() => setGender('female')}>NỮ</button>
+        <button className={gender === 'female' ? 'active' : ''} onClick={() => setGender('female')}>NỮ x</button>
     </div>
 
     <div className="product-list">

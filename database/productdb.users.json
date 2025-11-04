@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "690a23e79abda6ef05e08070"
+  },
+  "username": "admin",
+  "email": "doggygerman@gmail.com",
+  "password": "$2b$10$0/4JojFYVwoZ2oNP9x31Uek2tM4XABw0luWV4NtaAiyIJIBqwkJAW",
+  "SDT": "0974237202",
+  "address": null,
+  "role": "user",
+  "ngayTao": {
+    "$date": "2025-11-04T16:03:51.512Z"
+  }
+}]

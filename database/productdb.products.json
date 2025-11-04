@@ -1,0 +1,132 @@
+[{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a1"
+  },
+  "name": "Hoodie Nỉ Trơn Đen Basic",
+  "type": "Hoodie",
+  "color": "Đen",
+  "size": "M",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/hoodie-den-basic.jpg?alt=media&token=abc123def456",
+  "price": 199000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a2"
+  },
+  "name": "Hoodie Nỉ In Chữ Oversize",
+  "type": "Hoodie",
+  "color": "Xám",
+  "size": "L",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/hoodie-xam-oversize.jpg?alt=media&token=ghi789jkl012",
+  "price": 229000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a3"
+  },
+  "name": "Hoodie Trơn Đỏ Urban Street",
+  "type": "Hoodie",
+  "color": "Đỏ",
+  "size": "XL",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/hoodie-do-urban.jpg?alt=media&token=mno345pqr678",
+  "price": 249000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a4"
+  },
+  "name": "Áo Khoác Gió Basic Đen",
+  "type": "Khoác",
+  "color": "Đen",
+  "size": "M",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/khoac-gio-den.jpg?alt=media&token=stu901vwx234",
+  "price": 299000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a5"
+  },
+  "name": "Áo Khoác Gió Xám Nam Nữ",
+  "type": "Khoác",
+  "color": "Xám",
+  "size": "L",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/khoac-gio-xam.jpg?alt=media&token=yza567bcd890",
+  "price": 319000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a6"
+  },
+  "name": "Áo Khoác Gió Đỏ Urban",
+  "type": "Khoác",
+  "color": "Đỏ",
+  "size": "XL",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/khoac-gio-do.jpg?alt=media&token=efg123hij456",
+  "price": 339000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a7"
+  },
+  "name": "Áo Phao Ngắn Nam Màu Đen",
+  "type": "Phao",
+  "color": "Đen",
+  "size": "M",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/phao-den.jpg?alt=media&token=klm789nop012",
+  "price": 459000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a8"
+  },
+  "name": "Áo Phao Ngắn Màu Xám Ghi",
+  "type": "Phao",
+  "color": "Xám",
+  "size": "L",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/phao-xam.jpg?alt=media&token=qrs345tuv678",
+  "price": 479000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5a9"
+  },
+  "name": "Áo Phao Đỏ Urban Street",
+  "type": "Phao",
+  "color": "Đỏ",
+  "size": "XL",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/phao-do.jpg?alt=media&token=wxy901zab234",
+  "price": 499000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5aa"
+  },
+  "name": "Hoodie Trơn Basic Xám",
+  "type": "Hoodie",
+  "color": "Xám",
+  "size": "M",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/hoodie-xam-basic.jpg?alt=media&token=cde567fgh890",
+  "price": 209000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5ab"
+  },
+  "name": "Áo Khoác Dạ Đỏ Form Rộng",
+  "type": "Khoác",
+  "color": "Đỏ",
+  "size": "L",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/khoac-da-do.jpg?alt=media&token=ijk123lmn456",
+  "price": 359000
+},
+{
+  "_id": {
+    "$oid": "690a2f31fdaf4ec49873c5ac"
+  },
+  "name": "Áo Phao Đen Siêu Nhẹ",
+  "type": "Phao",
+  "color": "Đen",
+  "size": "XL",
+  "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/phao-den-sieu-nhe.jpg?alt=media&token=opq789rst012",
+  "price": 489000
+}]
