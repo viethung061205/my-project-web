@@ -11,7 +11,7 @@ const priceRanges = [
   { label: "> 500.000đ", min: 500000, max: Infinity }
 ];
 
-function ProductsMan() {
+function Products() {
   const { id } = useParams(); 
   const userId = id || "1";
 
@@ -27,13 +27,15 @@ function ProductsMan() {
     type: false,
     color: false,
     size: false,
-    price: false
+    price: false,
+    gender: false
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products/man")
+    fetch("http://localhost:5000/api/products/")
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => setProducts(data.products || []))
+
       .catch((err) => console.error("API error:", err));
   }, []);
 
@@ -188,7 +190,7 @@ function ProductsMan() {
           filteredProducts.map((p, idx) => (
             <div className="p-product-card" key={idx}>
               <img
-                src={p.images && p.images[0] ? p.images[0] : "/no-image.png"}
+                src={Array.isArray(p.images) && p.images.length > 0 ? p.images[0] : "/no-image.png"}
                 alt={p.name}
               />
               <div className="p-product-name">{p.name}</div>
@@ -197,7 +199,7 @@ function ProductsMan() {
                 ⭐ {p.rating || 0}
               </div>
               <div className="p-product-info text-success">
-                {p.price.toLocaleString("vi-VN")} ₫
+                {p.price ? `${p.price.toLocaleString("vi-VN")} ₫` : "Chưa có giá"}
               </div>
 
               <button className="p-btn-addcart">
@@ -218,4 +220,4 @@ function ProductsMan() {
   );
 }
 
-export default ProductsMan;
+export default Products;

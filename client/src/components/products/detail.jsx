@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./Products.css";
 // 🧩 Component trung gian dùng hook để truyền param vào class component
+
 function DetailF(props) {
   const { pid } = useParams(); // lấy id sản phẩm từ URL
   return <Detail {...props} id={pid} />;
@@ -43,8 +44,7 @@ class Detail extends React.Component {
         return res.json();
       })
       .then((data) => {
-        const product = data.products;
-
+        const product = data.product || data.products || {}; // chấp nhận cả 2
         this.setState({
           product_data: product,
           selectedImage: product.images?.[0] || "",
@@ -102,7 +102,7 @@ class Detail extends React.Component {
 
   // Khi click sản phẩm liên quan
   onClickSelectedId = (id) => {
-    window.location.href = `/detail/${id}`;
+  window.location.href = `/home/1/products/${id}`; // hoặc userId thực tế
   };
 
   render() {
@@ -170,10 +170,11 @@ class Detail extends React.Component {
             </div>
 
             <h4 className="fw-bold text-success mb-4">
-              {product_data.price
+              {typeof product_data.price === "number"
                 ? `${product_data.price.toLocaleString("vi-VN")}₫`
                 : "0₫"}
             </h4>
+
 
             <div className="d-flex gap-2">
               <button className="btn btn-outline-primary" onClick={this.onClickBuyNow}>
@@ -246,7 +247,9 @@ class Detail extends React.Component {
                     <div className="card-body text-center">
                       <h6>{item.name}</h6>
                       <p className="text-success fw-bold">
-                        {item.price.toLocaleString("vi-VN")}₫
+                        {typeof item.price === "number"
+                          ? `${item.price.toLocaleString("vi-VN")}₫`
+                          : "0₫"}
                       </p>
                     </div>
                   </div>

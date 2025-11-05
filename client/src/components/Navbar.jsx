@@ -16,12 +16,16 @@ function Navbar(){
     <>
       <div className="navbar">
         
-
+      <div className="navbar-left">
+                <Link to="/">
+                    <img src="https://www.coolmate.me/images/logo.png" alt="Coolmate" className="logo"/>
+                </Link>
+            </div>
         {/* Các link chính */}
         <div className="navbar-links">
-          <Link to={`/home/${userId}/products`}>NAM</Link>
-          <Link to={`/home/${userId}/products`}>NỮ</Link>
-          <Link to={`/home/${userId}/products`}>THỂ THAO</Link>
+          <Link to={`/home/${userId}/productsman`}>NAM</Link>
+          <Link to={`/home/${userId}/productswoman`}>NỮ</Link>
+          <Link to={`/home/${userId}/products`}>SẢN PHẨM</Link>
         </div>
 
         {/* Bên phải */}

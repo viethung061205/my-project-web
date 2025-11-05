@@ -1,13 +1,13 @@
 const { MongoClient } = require("mongodb");
 
-const uri = "mongodb://localhost:27017";
+const uri = "mongodb://127.0.0.1:27017";
 const client = new MongoClient(uri);
 const dbName = "productdb";
 
 async function db() {
-  if (!client.topology || !client.topology.isConnected()) {
-    await client.connect();
-  }
+
+  await client.connect(uri);
+  console.log(`✅ kết nối MongoDB thành công với database ${dbName}`);
   return client.db(dbName);
 }
 
