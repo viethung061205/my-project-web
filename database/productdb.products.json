@@ -129,4 +129,383 @@
   "size": "XL",
   "image": "https://firebasestorage.googleapis.com/v0/b/fashion-store-12345.appspot.com/o/phao-den-sieu-nhe.jpg?alt=media&token=opq789rst012",
   "price": 489000
-}]
+},
+{
+  "_id": {
+    "$oid": "6909ff0be7f90efffdd21f63"
+  },
+  "name": "Áo nỉ nam All-day Hoodie",
+  "type": "Áo Hoodie Nam",
+  "color": "Đỏ",
+  "size": "M",
+  "image": "https://n7media.coolmate.me/uploads/October2025/ao-ni-nam-all-day-hoodie-3-do_91.jpg?aio=w-1100",
+  "price": 599000,
+  "gender": "man"
+},
+{
+  "_id": {
+    "$oid": "6909fe43e7f90efffdd21f61"
+  },
+  "name": "Áo Hoodie thể thao nam Vital Active",
+  "type": "Áo Hoodie Nam",
+  "color": "Đen",
+  "size": "L",
+  "price": 199000,
+  "image": "https://n7media.coolmate.me/uploads/October2025/hoodie-the-thao-nam-vital-active-1-16-den_84.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f65"
+  },
+  "name": "Áo khoác WindBreaker Nylon Taslan",
+  "type": "Áo Khoác Gió",
+  "color": "Xanh",
+  "size": "XL",
+  "price": 449000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/December2024/ao-khoac-windbreaker-nylon-taslan-den-phoi-xanh-la_(1).jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f66"
+  },
+  "name": "Áo phao nhẹ Ultrawarm",
+  "type": "Áo Phao Nam",
+  "color": "Xanh",
+  "size": "L",
+  "price": 249000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/October2025/ao-phao-nhe-ultrawarm-1-080-xanh-navy-midnight.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f67"
+  },
+  "name": "Áo nỉ nam All-day Hoodie",
+  "type": "Áo Hoodie Nam",
+  "color": "Đen",
+  "size": "XL",
+  "price": 399000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/October2025/ao-ni-nam-all-day-hoodie-21-3-den_70.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f68"
+  },
+  "name": "Áo khoác thể thao Windbreaker Ripstop",
+  "type": "Áo Khoác Gió",
+  "color": "Xám",
+  "size": "M",
+  "price": 649000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/September2025/ao-khoac-the-thao-windbreaker-nylon-ribstop-xam-1_59.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f69"
+  },
+  "name": "Áo Phao Dày Ultrawarm Puffer Gile II",
+  "type": "Áo Phao Nam",
+  "color": "Đen",
+  "size": "L",
+  "price": 399000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/October2025/ThumbULTRAWARM_PUFFER_GILE_II_60211b.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f6a"
+  },
+  "name": "Áo khoác thể thao Fleece Track Jacket Premium có mũ",
+  "type": "Áo Khoác Gió",
+  "color": "Xanh",
+  "size": "L",
+  "price": 199000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/September2025/ao-khoac-the-thao-fleece-track-jacket-premium-co-mu-navy-1.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f6b"
+  },
+  "name": "Áo Hoodie thể thao nam Vital Active",
+  "type": "Áo Hoodie Nam",
+  "color": "Vàng",
+  "size": "L",
+  "price": 199000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/October2025/hoodie-the-thao-nam-vital-active-1-5-ghi-reu_36.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f6c"
+  },
+  "name": "Áo Khoác Nam có mũ Daily Wear",
+  "type": "Áo Khoác Gió",
+  "color": "Trắng",
+  "size": "XL",
+  "price": 699000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/September2025/ao-khoac-nam-co-mu-daily-wear-truot-nuoc-chong-uv-99-trang-5.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f6d"
+  },
+  "name": "Áo nỉ nam All-day Hoodie",
+  "type": "Áo Hoodie Nam",
+  "color": "Trắng",
+  "size": "M",
+  "price": 99000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/October2025/ao-ni-nam-all-day-hoodie-5-trang_42.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f6e"
+  },
+  "name": "Áo phao dày Ultrawarm Puffer có mũ",
+  "type": "Áo Phao Nam",
+  "color": "Xám",
+  "size": "XL",
+  "price": 599000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/December2024/ao-phao-day-ultrawarm-puffer-co-mu-xam-sang_(2).jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f6f"
+  },
+  "name": "Áo khoác thể thao Windbreaker Ripstop",
+  "type": "Áo Khoác Gió",
+  "color": "Đỏ",
+  "size": "L",
+  "price": 299000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/September2025/ao-khoac-the-thao-windbreaker-nylon-ribstop-cam-1_92.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f70"
+  },
+  "name": "Áo phao nhẹ Ultrawarm có mũ",
+  "type": "Áo Phao Nam",
+  "color": "Đen",
+  "size": "L",
+  "price": 499000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/December2024/ao-phao-nhe-ultrawarm-co-mu-den-1.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f71"
+  },
+  "name": "Áo phao nhẹ Ultrawarm có mũ",
+  "type": "Áo Phao Nam",
+  "color": "Xám",
+  "size": "L",
+  "price": 499000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/October2025/ao-phao-ultrawarm-co-mu-nhe-1-16-xam.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f72"
+  },
+  "name": "Áo khoác WindBreaker Nylon Taslan",
+  "type": "Áo Khoác Gió",
+  "color": "Xanh",
+  "size": "M",
+  "price": 199000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/December2024/ao-khoac-windbreaker-nylon-taslan-navy-phoi-den_(1).jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f73"
+  },
+  "name": "Áo phao nhẹ Ultrawarm có mũ - Outlet",
+  "type": "Áo Phao Nam",
+  "color": "Xám",
+  "size": "L",
+  "price": 299000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/December2024/ao-phao-nhe-ultrawarm-co-mu-be-1.jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f75"
+  },
+  "name": "Áo khoác WindBreaker Nylon Taslan",
+  "type": "Áo Khoác Gió",
+  "color": "Trắng",
+  "size": "XL",
+  "price": 699000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/December2024/ao-khoac-windbreaker-nylon-taslan-xam-phoi-trang_(8).jpg?aio=w-1100"
+},
+{
+  "_id": {
+    "$oid": "6909fffde7f90efffdd21f76"
+  },
+  "name": "Áo phao nhẹ Ultrawarm có mũ - Outlet",
+  "type": "Áo Phao Nam",
+  "color": "Xanh",
+  "size": "M",
+  "price": 199000,
+  "gender": "man",
+  "image": "https://n7media.coolmate.me/uploads/October2025/ao-phao-ultrawarm-nhe-co-mu-11-xanh-midnight-blue-xanh-midnight-navy.jpg?aio=w-1100"
+},
+
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f7c" },
+    "name": "Áo thun nữ chạy bộ Core Tee",
+    "type": "Áo Thun Nữ",
+    "color": "Xanh biển",
+    "size": "L",
+    "price": 299000,
+    "image": "https://n7media.coolmate.me/uploads/March2025/ao-thun-nu-chay-bo-core-tee-sieu-nhe-_42-xanh-crystal-blue_66.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f7d" },
+    "name": "Áo khoác nữ Track Jacket Windbreaker khoá kéo",
+    "type": "Áo Khoác Nữ",
+    "color": "Đen",
+    "size": "XL",
+    "price": 449000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-khoac-nu-track-jacket-winbreaker-co-khoa-zip5-den_22.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f7e" },
+    "name": "Áo dài tay thể thao nữ Slim Flex",
+    "type": "Áo Dài Tay Nữ",
+    "color": "Xanh biển",
+    "size": "XL",
+    "price": 649000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-dai-tay-the-thao-nu-slim-flex-10-xanh_17.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f7f" },
+    "name": "Áo thun thể thao nữ Comfort Tee",
+    "type": "Áo Thun Nữ",
+    "color": "Trắng",
+    "size": "M",
+    "price": 199000,
+    "image": "https://n7media.coolmate.me/uploads/March2025/ao-the-thao-nu-co-comfort-tee-271-trang-1_75.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f80" },
+    "name": "Áo khoác nữ Track Jacket Windbreaker khoá kéo",
+    "type": "Áo Khoác Nữ",
+    "color": "Xanh lá",
+    "size": "XL",
+    "price": 549000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-khoac-nu-track-jacket-winbreaker-co-khoa-zip3-xanh-la_39.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f81" },
+    "name": "Áo giữ nhiệt nữ Exwarm cổ thấp",
+    "type": "Áo Dài Tay Nữ",
+    "color": "Đen",
+    "size": "M",
+    "price": 199000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-giu-nhiet-nu-exwarm-co-thap-3-den-1.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f82" },
+    "name": "Áo khoác nữ Track Jacket Windbreaker khoá kéo",
+    "type": "Áo Khoác Nữ",
+    "color": "Đen",
+    "size": "L",
+    "price": 349000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-khoac-nu-track-jacket-winbreaker-co-khoa-zip5-den_22.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f83" },
+    "name": "T-shirt thể thao Vital Seamless",
+    "type": "Áo Thun Nữ",
+    "color": "Đen",
+    "size": "M",
+    "price": 249000,
+    "image": "https://n7media.coolmate.me/uploads/September2025/t-shirt-the-thao-vital-seamless-1-_1-den.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f84" },
+    "name": "Áo dài tay thể thao nữ Croptop Flex",
+    "type": "Áo Dài Tay Nữ",
+    "color": "Trắng",
+    "size": "L",
+    "price": 349000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-dai-tay-the-thao-nu-croptop-flex-21-1-trang_98.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f85" },
+    "name": "Áo Hoodie thể thao nữ Studio",
+    "type": "Áo Khoác Nữ",
+    "color": "Kem",
+    "size": "M",
+    "price": 199000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-hoodie-the-thao-nu-studio-1-_16-be.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f86" },
+    "name": "Áo dài tay thể thao nữ Croptop Flex",
+    "type": "Áo Dài Tay Nữ",
+    "color": "Hồng",
+    "size": "XL",
+    "price": 549000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-dai-tay-the-thao-nu-croptop-flex-21-2-hong_88.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f87" },
+    "name": "Tshirt chạy bộ nữ AirRush Gradient",
+    "type": "Áo Thun Nữ",
+    "color": "Trắng",
+    "size": "L",
+    "price": 349000,
+    "image": "https://n7media.coolmate.me/uploads/June2025/t-shirt-chay-bo-nu-airush-gradient-1_3.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f88" },
+    "name": "Áo Hoodie thể thao nữ Studio",
+    "type": "Áo Khoác Nữ",
+    "color": "Đỏ",
+    "size": "XL",
+    "price": 599000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-hoodie-the-thao-nu-studio-1-_5-do.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f89" },
+    "name": "Tshirt chạy bộ nữ AirRush Gradient",
+    "type": "Áo Thun Nữ",
+    "color": "Đen",
+    "size": "M",
+    "price": 179000,
+    "image": "https://n7media.coolmate.me/uploads/June2025/t-shirt-chay-bo-nu-airush-gradient-1_1.jpg?aio=w-1100",
+    "gender": "woman"
+  },
+  {
+    "_id": { "$oid": "690b0d23e7f90efffdd21f8a" },
+    "name": "Áo dài tay thể thao nữ Slim Flex",
+    "type": "Áo Dài Tay Nữ",
+    "color": "Trắng",
+    "size": "L",
+    "price": 449000,
+    "image": "https://n7media.coolmate.me/uploads/October2025/ao-dai-tay-the-thao-nu-slim-flex-8-trang_53.jpg?aio=w-1100",
+    "gender": "woman"
+  }
+]

@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const connectDB = require("../config/db");
-const { create } = require("../models/Product");
+
 
 // ===== ĐĂNG KÝ =====
 router.post("/register", async (req, res) => {
