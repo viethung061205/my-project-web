@@ -72,7 +72,7 @@ const ProductsWoman = () => {
           </button>
           {dropdownOpen.type && (
             <div className="p-dropdown-menu no-checkbox">
-              {["Áo Hoodie Nam", "Áo Khoác Gió", "Áo Phao Nam"].map((type) => (
+              {["Áo Thun Nữ", "Áo Khoác Nữ", "Áo Dài Tay Nữ"].map((type) => (
                 <div
                   key={type}
                   className={`p-dropdown-option ${filters.types === type ? "active" : ""}`}
@@ -96,7 +96,7 @@ const ProductsWoman = () => {
           </button>
           {dropdownOpen.color && (
             <div className="p-dropdown-menu no-checkbox">
-              {["Đen", "Xám", "Đỏ", "Trắng", "Xanh", "Vàng"].map((color) => (
+              {["Đen", "Kem", "Đỏ", "Trắng", "Xanh biển", "Hồng", "Xanh lá"].map((color) => (
                 <div
                   key={color}
                   className={`p-dropdown-option ${filters.colors === color ? "active" : ""}`}

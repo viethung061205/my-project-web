@@ -11,14 +11,10 @@ const priceRanges = [
   { label: "> 500.000đ", min: 500000, max: Infinity }
 ];
 
-<<<<<<<< HEAD:client/src/components/products/Products.jsx
-function Products() {
-  const { id } = useParams(); // userId từ URL
+function ProductsMan() {
+  const { id } = useParams(); 
   const userId = id || "1";
 
-========
-const ProductsMan = () => {
->>>>>>>> 0ceaabc2ba0852df604e5ac9ef596095fcbd582f:client/src/pages/Products-man.jsx
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({
     types: "",
@@ -35,21 +31,9 @@ const ProductsMan = () => {
   });
 
   useEffect(() => {
-<<<<<<<< HEAD:client/src/components/products/Products.jsx
-    fetch("http://localhost:5000/api/products/")
-      .then((res) => {
-        if (!res.ok) throw new Error("Network error");
-        return res.json();
-      })
-      .then((data) => {
-        console.log("products_data=", data.products);
-        setProducts(data.products);
-      })
-========
     fetch("http://localhost:5000/api/products/man")
       .then((res) => res.json())
       .then((data) => setProducts(data))
->>>>>>>> 0ceaabc2ba0852df604e5ac9ef596095fcbd582f:client/src/pages/Products-man.jsx
       .catch((err) => console.error("API error:", err));
   }, []);
 
@@ -234,8 +218,4 @@ const ProductsMan = () => {
   );
 }
 
-<<<<<<<< HEAD:client/src/components/products/Products.jsx
-export default Products;
-========
 export default ProductsMan;
->>>>>>>> 0ceaabc2ba0852df604e5ac9ef596095fcbd582f:client/src/pages/Products-man.jsx
