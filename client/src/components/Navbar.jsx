@@ -32,7 +32,8 @@ function Navbar() {
 
         {/* Các link chính */}
         <div className="navbar-links">
-         
+          <Link to="/products/man">NAM</Link>
+          <Link to="/products/woman">NỮ</Link>
           <Link to="/products">THỂ THAO</Link>
         </div>
 

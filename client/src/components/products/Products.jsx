@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams,useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Products.css";
 
 const priceRanges = [
@@ -12,48 +12,37 @@ const priceRanges = [
 ];
 
 function Products() {
-  const location = useLocation(); 
-  
-  const user_id = location.state?.user_id || JSON.parse(localStorage.getItem("user"))?.id;
-  
-  const userId = user_id || "1";
-  console.log("🔹 Detail componentDidMount - user_id:", userId);
+  const { id } = useParams(); 
+  const userId = id || "1";
+
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({
     types: "",
     colors: "",
     sizes: "",
     priceRange: null,
-    rating: 0,
-    gender: ""  // thêm gender
+    rating: 0
   });
-
   const [dropdownOpen, setDropdownOpen] = useState({
     type: false,
     color: false,
     size: false,
     price: false,
-    gender: false // thêm dropdown gender
+    gender: false
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products/sanpham")
-      .then(res => res.json())
-      .then((data) => {
-        console.log("Dữ liệu products:", data);
-        // data.products là mảng sản phẩm
-        setProducts(data.products || []);
-      })
-      .catch((err) => {
-        console.log("Lỗi fetch sản phẩm:", err);
-      });
-  }, []);
-  
+    fetch("http://localhost:5000/api/products/")
+      .then((res) => res.json())
+      .then((data) => setProducts(data.products || []))
 
-  const handleSelect = (key, value) => {
+      .catch((err) => console.error("API error:", err));
+  }, []);
+
+  const handleSelect = (category, value) => {
     setFilters((prev) => ({
       ...prev,
-      [key]: prev[key] === value ? "" : value
+      [category]: prev[category] === value ? "" : value
     }));
   };
 
@@ -64,31 +53,23 @@ function Products() {
     }));
   };
 
-  const handleRatingFilter = () => {
+  const handleRatingFilter = (rating) => {
     setFilters((prev) => ({
       ...prev,
-      rating: prev.rating === 5 ? 0 : 5
+      rating: prev.rating === rating ? 0 : rating
     }));
   };
 
   const filteredProducts = products.filter((p) => {
-    const matchType = !filters.types || p.type === filters.types;
-    const matchColor = !filters.colors || p.color === filters.colors;
-    const matchSize = !filters.sizes || p.size === filters.sizes;
+    const matchType = !filters.types || filters.types === p.type;
+    const matchColor = !filters.colors || filters.colors === p.color;
+    const matchSize = !filters.sizes || filters.sizes === p.size;
     const matchPrice =
       !filters.priceRange ||
       (p.price >= filters.priceRange.min && p.price <= filters.priceRange.max);
-    const matchRating = !filters.rating || (p.rating || 0) >= filters.rating;
-     // lọc theo gender
-      let matchGender = true;
-      if (filters.gender === "man") {
-        matchGender = p.gender === "man" ;
-      } else if (filters.gender === "woman") {
-        matchGender = p.gender === "woman" ;
-      } else if (filters.gender === "unisex") {
-        matchGender = p.gender === "unisex";
-      }
-    return matchType && matchColor && matchSize && matchPrice && matchRating && matchGender;
+    const matchRating = !filters.rating || p.rating >= filters.rating;
+
+    return matchType && matchColor && matchSize && matchPrice && matchRating;
   });
 
   return (
@@ -96,154 +77,147 @@ function Products() {
       <aside className="p-product-sidebar">
         <h2>Bộ lọc</h2>
 
-        <FilterDropdown
-          label="Danh mục"
-          open={dropdownOpen.type}
-          toggle={() => setDropdownOpen((p) => ({ ...p, type: !p.type }))}
-          options={["Áo Hoodie Nam", "Áo Khoác Gió", "Áo Phao Nam"]}
-          active={filters.types}
-          onSelect={(v) => handleSelect("types", v)}
-        />
+        <div className="p-filter-group">
+          <button
+            className="p-dropdown-toggle"
+            onClick={() =>
+              setDropdownOpen((prev) => ({ ...prev, type: !prev.type }))
+            }
+          >
+            Danh mục <span className="p-arrow-down">▼</span>
+          </button>
+          {dropdownOpen.type && (
+            <div className="p-dropdown-menu no-checkbox">
+              {["Áo Hoodie Nam", "Áo Khoác Gió", "Áo Phao Nam"].map((type) => (
+                <div
+                  key={type}
+                  className={`p-dropdown-option ${filters.types === type ? "active" : ""}`}
+                  onClick={() => handleSelect("types", type)}
+                >
+                  {type}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
 
-        <FilterDropdown
-          label="Màu sắc"
-          open={dropdownOpen.color}
-          toggle={() => setDropdownOpen((p) => ({ ...p, color: !p.color }))}
-          options={["Đen", "Xám", "Đỏ", "Trắng", "Xanh", "Vàng"]}
-          active={filters.colors}
-          onSelect={(v) => handleSelect("colors", v)}
-        />
+        <div className="p-filter-group">
+          <button
+            className="p-dropdown-toggle"
+            onClick={() =>
+              setDropdownOpen((prev) => ({ ...prev, color: !prev.color }))
+            }
+          >
+            Màu sắc <span className="p-arrow-down">▼</span>
+          </button>
+          {dropdownOpen.color && (
+            <div className="p-dropdown-menu no-checkbox">
+              {["Đen", "Xám", "Đỏ", "Trắng", "Xanh", "Vàng"].map((color) => (
+                <div
+                  key={color}
+                  className={`p-dropdown-option ${filters.colors === color ? "active" : ""}`}
+                  onClick={() => handleSelect("colors", color)}
+                >
+                  {color}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
 
-        <FilterDropdown
-          label="Kích thước"
-          open={dropdownOpen.size}
-          toggle={() => setDropdownOpen((p) => ({ ...p, size: !p.size }))}
-          options={["M", "L", "XL"]}
-          active={filters.sizes}
-          onSelect={(v) => handleSelect("sizes", v)}
-        />
+        <div className="p-filter-group">
+          <button
+            className="p-dropdown-toggle"
+            onClick={() =>
+              setDropdownOpen((prev) => ({ ...prev, size: !prev.size }))
+            }
+          >
+            Kích thước <span className="p-arrow-down">▼</span>
+          </button>
+          {dropdownOpen.size && (
+            <div className="p-dropdown-menu no-checkbox">
+              {["M", "L", "XL"].map((size) => (
+                <div
+                  key={size}
+                  className={`p-dropdown-option ${filters.sizes === size ? "active" : ""}`}
+                  onClick={() => handleSelect("sizes", size)}
+                >
+                  {size}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
 
-        <FilterPriceDropdown
-          open={dropdownOpen.price}
-          toggle={() => setDropdownOpen((p) => ({ ...p, price: !p.price }))}
-          ranges={priceRanges}
-          active={filters.priceRange}
-          onSelect={handlePriceSelect}
-        />
+        <div className="p-filter-group">
+          <button
+            className="p-dropdown-toggle"
+            onClick={() =>
+              setDropdownOpen((prev) => ({ ...prev, price: !prev.price }))
+            }
+          >
+            Giá tiền <span className="p-arrow-down">▼</span>
+          </button>
+          {dropdownOpen.price && (
+            <div className="p-dropdown-menu no-checkbox">
+              {priceRanges.map((range, i) => (
+                <div
+                  key={i}
+                  className={`p-dropdown-option ${filters.priceRange === range ? "active" : ""}`}
+                  onClick={() => handlePriceSelect(range)}
+                >
+                  {range.label}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
 
-        <FilterDropdown
-          label="Giới tính"
-          open={dropdownOpen.gender}
-          toggle={() => setDropdownOpen((p) => ({ ...p, gender: !p.gender }))}
-          options={["Nam", "Nữ", "Unisex"]}
-          active={filters.gender ? filters.gender : ""}
-          onSelect={(v) => {
-            // Map dropdown text sang gender DB
-            let genderValue = "";
-            if (v === "Nam") genderValue = "man";
-            else if (v === "Nữ") genderValue = "woman";
-            else if (v === "Unisex") genderValue = "unisex";
-            handleSelect("gender", genderValue);
-          }}
-        />
-
-
-        <button className="p-dropdown-toggle" onClick={handleRatingFilter}>
-          ⭐ 5 sao trở lên
-        </button>
-        <button
-          className="p-btn-reset"
-          onClick={() =>
-            setFilters({
-              types: "",
-              colors: "",
-              sizes: "",
-              priceRange: null,
-              rating: 0,
-              gender: ""
-            })
-          }
-        >
-          🔄 Xóa bộ lọc
-        </button>
+        <div className="p-filter-group">
+          <button
+            className="p-dropdown-toggle"
+            onClick={() => handleRatingFilter(5)}
+          >
+            ⭐ 5 sao trở lên
+          </button>
+        </div>
       </aside>
 
       <main className="p-product-list">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((p) => (
-            <div className="p-product-card" key={p._id}>
-              <img src={p.image || "/no-image.png"} alt={p.name} />
-
+        {filteredProducts.length === 0 ? (
+          <p>Không tìm thấy sản phẩm phù hợp.</p>
+        ) : (
+          filteredProducts.map((p, idx) => (
+            <div className="p-product-card" key={idx}>
+              <img
+                src={Array.isArray(p.images) && p.images.length > 0 ? p.images[0] : "/no-image.png"}
+                alt={p.name}
+              />
               <div className="p-product-name">{p.name}</div>
               <div className="p-product-info">{p.brand}</div>
-              <div className="p-product-info text-warning">⭐ {p.rating || 0}</div>
+              <div className="p-product-info text-warning">
+                ⭐ {p.rating || 0}
+              </div>
               <div className="p-product-info text-success">
-                {p.price.toLocaleString("vi-VN")} ₫
+                {p.price ? `${p.price.toLocaleString("vi-VN")} ₫` : "Chưa có giá"}
               </div>
 
-              <button className="btn-cart">
+              <button className="p-btn-addcart">
                 <i className="bi bi-cart"></i> Add to cart
               </button>
 
               <Link
-                to={`/detail/${p._id}`} // Sửa đường dẫn để khớp với Route của DetailF
-                state={{ user_id: userId }} // 💥 QUAN TRỌNG: Gửi user_id qua state
-                className="btn-detail"
+                to={`/home/${userId}/products/${p._id}`}
+                className="p-btn-view"
               >
                 <i className="bi bi-eye"></i> Xem chi tiết
               </Link>
             </div>
           ))
-        ) : (
-          <p>Không tìm thấy sản phẩm phù hợp.</p>
         )}
       </main>
     </div>
   );
 }
-
-const FilterDropdown = ({ label, open, toggle, options, active, onSelect }) => (
-  <div className="p-filter-group">
-    <button className="p-dropdown-toggle" onClick={toggle}>
-      {label} <span>▼</span>
-    </button>
-
-    {open && (
-      <div className="p-dropdown-menu no-checkbox">
-        {options.map((item) => (
-          <div
-            key={item}
-            className={`p-dropdown-option ${active === item ? "active" : ""}`}
-            onClick={() => onSelect(item)}
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-    )}
-  </div>
-);
-
-const FilterPriceDropdown = ({ open, toggle, ranges, active, onSelect }) => (
-  <div className="p-filter-group">
-    <button className="p-dropdown-toggle" onClick={toggle}>
-      Giá tiền <span>▼</span>
-    </button>
-
-    {open && (
-      <div className="p-dropdown-menu no-checkbox">
-        {ranges.map((r, i) => (
-          <div
-            key={i}
-            className={`p-dropdown-option ${active === r ? "active" : ""}`}
-            onClick={() => onSelect(r)}
-          >
-            {r.label}
-          </div>
-        ))}
-      </div>
-    )}
-  </div>
-);
 
 export default Products;
