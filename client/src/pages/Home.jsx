@@ -18,6 +18,9 @@ const products = [
 ];
 
 export default function Home() {
+
+  const user = JSON.parse(localStorage.getItem("user")); // Lấy object user
+  console.log(user)
   const images = [
     "https://n7media.coolmate.me/uploads/September2025/TW_Hero_Desktop.jpg",
     "https://n7media.coolmate.me/uploads/October2025/banner_nam_nu.jpg",
@@ -66,7 +69,7 @@ export default function Home() {
 
     <div className="gender-buttons">
         <button className={gender === 'male' ? 'active' : ''} onClick={() => setGender('male')}>NAM</button>
-        <button className={gender === 'female' ? 'active' : ''} onClick={() => setGender('female')}>NỮ x</button>
+        <button className={gender === 'female' ? 'active' : ''} onClick={() => setGender('female')}>NỮ</button>
     </div>
 
     <div className="product-list">

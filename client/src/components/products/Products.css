@@ -1,44 +1,60 @@
+/* ======== Product List Page ======== */
 .p-product-container {
   display: flex;
+  flex-wrap: wrap;
   padding: 30px;
+  gap: 20px;
 }
 
 .p-product-sidebar {
-  width: 250px;
+  flex: 0 0 250px;
   padding-right: 20px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #eee;
 }
 
 .p-filter-group {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .p-dropdown-toggle {
-  background-color: white;
+  background-color: #fff;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 10px 15px;
   width: 100%;
   border-radius: 6px;
-  text-align: left;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.p-dropdown-toggle:hover {
+  border-color: #007bff;
 }
 
 .p-arrow-down {
   font-size: 12px;
-  color: gray;
+  color: #888;
 }
-
-.p-dropdown-menu {
+.p-btn-reset{
   border: 1px solid #ddd;
-  background-color: white;
+  background-color: #fff;
   border-radius: 6px;
   margin-top: 5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   overflow: hidden;
+  z-index: 10;
+}
+.p-dropdown-menu {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 6px;
+  margin-top: 5px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 10;
 }
 
 .p-dropdown-menu.no-checkbox {
@@ -47,9 +63,9 @@
 }
 
 .p-dropdown-option {
-  padding: 10px 12px;
+  padding: 10px 15px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
   border-bottom: 1px solid #f0f0f0;
 }
 
@@ -58,12 +74,14 @@
 }
 
 .p-dropdown-option:hover {
-  background-color: #f5f5f5;
+  background-color: #f0f8ff;
 }
 
 .p-dropdown-option.active {
-  background-color: rgb(71, 197, 239);
+  background-color: #47c5ef;
+  color: #fff;
   font-weight: bold;
+  border-radius: 4px;
 }
 
 .p-product-list {
@@ -76,55 +94,59 @@
 
 .p-product-card {
   border: 1px solid #eee;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
-  background: white;
-  padding: 10px;
-  transition: transform 0.3s;
+  background: #fff;
+  padding: 15px;
+  transition: all 0.3s ease;
 }
 
 .p-product-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .p-product-card img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
+  object-fit: contain;
 }
 
 .p-product-name {
-  font-weight: bold;
-  margin-top: 10px;
+  font-weight: 600;
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #222;
 }
 
 .p-product-info {
   font-size: 14px;
   color: #555;
+  margin-top: 5px;
 }
-/* Detail.css */
 
+/* ======== Product Detail Page ======== */
 .product-detail-container {
   max-width: 1100px;
-  margin: 50px auto; /* 🔹 Căn giữa toàn trang */
-  margin: 40px auto;
-  padding: 20px;
+  margin: 50px auto;
+  padding: 30px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .product-detail-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #222;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .product-main {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 50px;
   align-items: flex-start;
 }
 
@@ -135,10 +157,16 @@
 
 .product-image img.main-image {
   max-width: 100%;
-  max-height: 350px;
+  max-height: 400px;
   object-fit: contain;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  border-radius: 10px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.product-image img.main-image:hover {
+  transform: scale(1.03);
 }
 
 .thumbnail-list {
@@ -146,6 +174,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .thumbnail-list img {
@@ -153,13 +182,15 @@
   height: 70px;
   object-fit: contain;
   border: 2px solid transparent;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   background-color: #fafafa;
+  transition: all 0.3s ease;
 }
 
 .thumbnail-list img.active {
   border-color: #007bff;
+  transform: scale(1.05);
 }
 
 .product-info {
@@ -167,12 +198,13 @@
 }
 
 .product-info p {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  line-height: 1.5;
 }
 
 .price {
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #28a745;
   margin: 20px 0;
 }
@@ -181,10 +213,13 @@
   width: 80px;
   text-align: center;
   margin-left: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 5px;
 }
 
 .btn-buy, .btn-cart {
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -194,7 +229,7 @@
 
 .btn-buy {
   background: #ff5722;
-  color: white;
+  color: #fff;
 }
 
 .btn-buy:hover {
@@ -203,14 +238,14 @@
 
 .btn-cart {
   background: #007bff;
-  color: white;
+  color: #fff;
 }
 
 .btn-cart:hover {
   background: #0069d9;
 }
 
-/* Tabs */
+/* ======== Tabs ======== */
 .nav-tabs {
   display: flex;
   border-bottom: 2px solid #eee;
@@ -219,7 +254,7 @@
 
 .nav-tabs button {
   flex: 1;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border: none;
   background: none;
   font-weight: 600;
@@ -230,7 +265,7 @@
 }
 
 .nav-tabs button:hover {
-  color: #000;
+  color: #007bff;
 }
 
 .nav-tabs button.active {
@@ -238,7 +273,7 @@
   border-bottom-color: #007bff;
 }
 
-/* Related products */
+/* ======== Related Products ======== */
 .related-products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -248,12 +283,30 @@
 
 .related-products .card {
   border: 1px solid #eee;
-  border-radius: 10px;
+  border-radius: 12px;
   transition: all 0.3s ease;
   background: #fff;
 }
 
 .related-products .card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+}
+
+.related-products .card img {
+  height: 140px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.related-products .card h6 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.related-products .card p {
+  font-size: 0.9rem;
+  color: #28a745;
+  font-weight: 600;
 }
