@@ -445,7 +445,7 @@ body, html {
 }
 
 .about-banner {
-  background-image: url('https://i.pinimg.com/1200x/97/7d/b6/977db6f76b8f0808e67b5e0efe9ea764.jpg'); /* thay bằng ảnh nền bạn muốn */
+  background-image: url('https://i.pinimg.com/1200x/97/7d/b6/977db6f76b8f0808e67b5e0efe9ea764.jpg'); 
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -551,16 +551,6 @@ body, html {
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
-
-
-
-/*Book.css*/
-.booking {
-    font-size: 100px;
-    margin-top: 0px;
-}
-
-
 
 /*Login.css*/
 .login-container {

@@ -3,12 +3,79 @@ import "../index.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    hoten: "",
+    ngaysinh: "",
+    gioitinh: "",
+    diachi: "",
+    sdt: "",
+    email: "",
+    matkhau: "",
+  });
+
   const [showPassword, setShowPassword] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const navigate = useNavigate();
-  const handleSignUp = (e) => {
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "sdt" && !/^\d*$/.test(value)) return;
+
+    setForm({ ...form, [name]: value });
+  };
+
+  const validateForm = () => {
+    const { hoten, ngaysinh, gioitinh, diachi, sdt, email, matkhau } = form;
+
+    if (!hoten || !ngaysinh || !gioitinh || !diachi || !sdt || !email || !matkhau) {
+      setError("Please fill in all required fields");
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Invalid email format");
+      return false;
+    }
+
+    if (matkhau.length < 6) {
+      setError("Password must be at least 6 characters");
+      return false;
+    }
+
+    setError("");
+    return true;
+  };
+
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    setShowSuccess(true); 
+
+    if (!validateForm()) return;
+
+    try {
+      const res = await fetch("http://localhost:3000/api/user/dangky", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || "Sign up failed");
+        return;
+      }
+
+      setShowSuccess(true);
+    } catch (err) {
+      console.error(err);
+      setError("Cannot connect to server");
+    }
   };
 
   return (
@@ -18,7 +85,9 @@ const SignUp = () => {
       </div>
 
       <h2>Lots of shopping privileges and benefits await you</h2>
-      <p className="sub-title">Exclusive benefits for you when joining Disney account</p>
+      <p className="sub-title">
+        Exclusive benefits for you when joining Disney account
+      </p>
 
       <div className="benefits">
         <div className="benefit-item">
@@ -36,45 +105,76 @@ const SignUp = () => {
       </div>
 
       <form className="login-form" onSubmit={handleSignUp}>
-        <div className="row-inputs">
-          <div className="half-input">
-            <label>Full name <span>*</span></label>
-            <input type="text" required />
-          </div>
-          <div className="half-input">
-            <label>Phone number <span>*</span></label>
-            <input type="text" required />
-          </div>
-        </div>
+        <label>Full name <span>*</span></label>
+        <input type="text" name="hoten" value={form.hoten} onChange={handleChange} />
+
+        <label>Date of birth <span>*</span></label>
+        <input type="date" name="ngaysinh" value={form.ngaysinh} onChange={handleChange} />
+
+        <label>Gender <span>*</span></label>
+        <select name="gioitinh" value={form.gioitinh} onChange={handleChange}>
+          <option value="">-- Select gender --</option>
+          <option value="Nam">Male</option>
+          <option value="Nữ">Female</option>
+          <option value="Khác">Other</option>
+        </select>
+
+        <label>Address <span>*</span></label>
+        <input type="text" name="diachi" value={form.diachi} onChange={handleChange} />
+
+        <label>Phone number <span>*</span></label>
+        <input type="text" name="sdt" value={form.sdt} onChange={handleChange} />
 
         <label>Email address <span>*</span></label>
-        <input type="email" required />
+        <input type="email" name="email" value={form.email} onChange={handleChange} />
 
         <label>Password <span>*</span></label>
         <div className="password-input">
-          <input type={showPassword ? "text" : "password"} required />
+          <input
+            type={showPassword ? "text" : "password"}
+            name="matkhau"
+            value={form.matkhau}
+            onChange={handleChange}
+          />
           <img
-            src={showPassword
-              ? "https://i.pinimg.com/736x/e4/a4/d8/e4a4d883b8b7bebbd595a059811a6c8f.jpg"
-              : "https://i.pinimg.com/736x/89/99/bc/8999bc9c7b654ab16cb91a3334813ac7.jpg"}
+            src={
+              showPassword
+                ? "https://i.pinimg.com/736x/e4/a4/d8/e4a4d883b8b7bebbd595a059811a6c8f.jpg"
+                : "https://i.pinimg.com/736x/89/99/bc/8999bc9c7b654ab16cb91a3334813ac7.jpg"
+            }
             alt="toggle password"
             className="eye-icon"
             onClick={() => setShowPassword(!showPassword)}
           />
         </div>
 
-        <button type="submit" className="login-btn"><b>SIGN UP</b></button>
+        {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
+
+        <button type="submit" className="login-btn">
+          <b>SIGN UP</b>
+        </button>
       </form>
 
       {showSuccess && (
         <div className="success-popup">
-          <p>Now you also have a new account. Let's login again and enjoy the web.<br />
-            Thank you for your loving!</p>
-          <button className="popup-btn" onClick={() => {setShowSuccess(false); navigate("/login");}}>OK</button>
+          <p>
+            Now you also have a new account. Let's login again and enjoy the web.
+            <br />
+            Thank you for your loving!
+          </p>
+          <button
+            className="popup-btn"
+            onClick={() => {
+              setShowSuccess(false);
+              navigate("/login");
+            }}
+          >
+            OK
+          </button>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default SignUp;

@@ -6,7 +6,7 @@ export default function Home() {
     <>
     <div className="home-container">
       <video className="background-video" autoPlay loop muted>
-        <source src="/video-disney.mp4" type="video/mp4" />
+        <source src="/disney-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="overlay-content">

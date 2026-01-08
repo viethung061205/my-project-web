@@ -3,7 +3,10 @@ import './index.css'
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
-import Book from './pages/Book';
+import Booking from './pages/Booking';
+import BookingDetail from "./pages/booking/BookingDetail";
+import BookingCheckout from './components/BookingCheckout';
+import BookingForm from './components/BookingForm';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Footer from './components/Footer';
@@ -17,7 +20,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/book" element={<Book />} />
+      <Route path="/booking" element={<Booking />} />
+      <Route path="/booking/:location" element={<BookingDetail />} />
+      <Route path="/booking/:location/checkout" element={<BookingCheckout />} />
+      <Route path="/booking/:location/form" element={<BookingForm />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />
