@@ -3,58 +3,119 @@ import "../index.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [emailOrPhone, setEmailOrPhone] = useState("");
+  const [step, setStep] = useState(1);
+  const [email, setEmail] = useState("");
+  const [otp, setOtp] = useState("");
+  const [matkhauMoi, setMatkhauMoi] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSendOTP = async (e) => {
     e.preventDefault();
-    if (emailOrPhone.trim() !== "") {
-      setShowSuccess(true);
+
+    try {
+      const res = await fetch(
+        "http://localhost:3000/api/user/guiOTP",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("OTP has been sent to your email");
+        setStep(2);
+      } else {
+        alert(data.message);
+      }
+    } catch {
+      alert("Cannot connect to server");
+    }
+  };
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch(
+        "http://localhost:3000/api/user/xacnhanOTP",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            otp,
+            matkhauMoi,
+          }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Password updated successfully");
+        navigate("/login");
+      } else {
+        alert(data.message);
+      }
+    } catch {
+      alert("Cannot connect to server");
     }
   };
 
   return (
     <div className="login-container">
       <div className="login-logo">
-        <Link to="/"><img src="/disney-logo.png" alt="Disney" /></Link>
+        <Link to="/">
+          <img src="/disney-logo.png" alt="Disney" />
+        </Link>
       </div>
 
-      <h2>Lots of shopping privileges and benefits await you</h2>
-      <p className="sub-title">Exclusive benefits for you when joining Disney account</p>
+      <h2>Reset your password</h2>
 
-      <div className="benefits">
-        <div className="benefit-item">
-          <img src="https://i.pinimg.com/736x/86/ab/8e/86ab8ec4bd0c09f0a832ae8d04fd6472.jpg" alt="voucher" />
-          <span>DISCOUNT VOUCHER</span>
-        </div>
-        <div className="benefit-item">
-          <img src="https://i.pinimg.com/736x/d2/01/a4/d201a4e368e776e425c30261201bc74c.jpg" alt="gift" />
-          <span>EXCLUSIVE GIFT</span>
-        </div>
-        <div className="benefit-item">
-          <img src="https://i.pinimg.com/736x/4b/f5/f0/4bf5f0f7b288df34bea35287317a7656.jpg" alt="cashback" />
-          <span>CASHBACK OFFER</span>
-        </div>
-      </div>
+      {step === 1 && (
+        <form className="login-form" onSubmit={handleSendOTP}>
+          <label>Email address <span>*</span></label>
+          <input
+            type="email"
+            placeholder="example@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-      <form className="login-form" onSubmit={handleSubmit}>
-        <label>Email address or phone number <span>*</span></label>
-        <input
-          type="text"
-          value={emailOrPhone}
-          onChange={(e) => setEmailOrPhone(e.target.value)}
-          required
-        />
-        <button type="submit" className="login-btn"><b>SEND REQUEST</b></button>
-      </form>
+          <button type="submit" className="login-btn">
+            <b>SEND OTP</b>
+          </button>
+        </form>
+      )}
 
-      {showSuccess && (
-        <div className="success-popup">
-          <p>We had sent a new password for your phone number.<br />
-            Please try login again!</p>
-          <button className="popup-btn" onClick={() => { setShowSuccess(false); navigate("/login"); }}>OK</button>
-        </div>
+      {step === 2 && (
+        <form className="login-form" onSubmit={handleResetPassword}>
+          <label>OTP code <span>*</span></label>
+          <input
+            type="text"
+            placeholder="6-digit OTP"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            required
+          />
+
+          <label>New password <span>*</span></label>
+          <input
+            type="password"
+            placeholder="At least 6 characters"
+            value={matkhauMoi}
+            onChange={(e) => setMatkhauMoi(e.target.value)}
+            required
+          />
+
+          <button type="submit" className="login-btn">
+            <b>RESET PASSWORD</b>
+          </button>
+        </form>
       )}
     </div>
   );

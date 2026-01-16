@@ -1,66 +1,71 @@
-import "./TicketList.css"; 
+import "./TicketList.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const tickets = [ 
-  {
-    type: "1-day admission ticket",
-    description: "Enjoy a discount of 500.000 VND/person when booking tickets for groups of 4-6 people",
-    price: "2.600.000 VND",
-    original: "2.880.000 VND"
-  },
-  {
-    type: "Couple admission tickets",
-    description: "Includes meal voucher. 100,000 VND discount/person when buying additional meal vouchers",
-    price: "5.000.000 VND",
-    original: "5.760.000 VND"
-  },
-  {
-    type: "2-day admission ticket",
-    description: "Enjoy a discount of 500.000 VND/person when booking tickets for groups of 4-6 people",
-    price: "4.800.000 VND",
-    original: "5.760.000 VND"
-  },
-  {
-    type: "1 day full option",
-    description: "Includes meal voucher. Enjoy a discount of 100.000 VND/person when booking tickets for 2 people",
-    price: "2.899.000 VND",
-    original: "3.199.000 VND"
-  }
-];
-
-const TicketList = ({ location }) => { 
+const TicketList = ({ location }) => {
   const navigate = useNavigate();
 
-const handleBook = (ticket) => {
-  navigate(`/booking/${location}/checkout`, {
-    state: {
-      ticketType: ticket.type,
-      originalPrice: ticket.original,
-      discountedPrice: ticket.price,
-    },
-  });
-};
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => {
+  if (!location) return;
+
+  const getTicketsByLocation = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/ticket/${location}`
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch tickets");
+      }
+
+      const data = await res.json();
+      setTickets(data);
+    } catch (error) {
+      console.error("Error fetching tickets:", error);
+    }
+  };
+
+  getTicketsByLocation();
+}, [location]);
+
+  const handleBook = (ticket) => {
+    navigate(`/booking/${location}/checkout`, {
+      state: {
+        ticketType: ticket.loai,
+        originalPrice: ticket.giabth,
+        discountedPrice: ticket.gia,
+      },
+    });
+  };
 
   return (
     <div className="ticket-list">
       <h2>Available Ticket</h2>
+
       {tickets.map((ticket, i) => (
         <div key={i} className="ticket-card">
           <div className="ticket-left">
-            <h3>{ticket.type}</h3>
-            <p>{ticket.description}</p>
+            <h3>{ticket.loai}</h3>
+            <p>{ticket.mota}</p>
             <a href="#">More detail</a>
             <div className="label-buttons">
               <span className="label-btn">📝 Get Refund</span>
               <span className="label-btn">🎟 Available Voucher</span>
             </div>
           </div>
+
           <div className="ticket-right">
             <div className="price">
-              <strong>{ticket.price}</strong>
-              <del>{ticket.original}</del>
+              <strong>{ticket.gia.toLocaleString()} VND</strong>
+              <del>{ticket.giabth.toLocaleString()} VND</del>
             </div>
-            <button className="book-ticket-btn" onClick={() => handleBook(ticket)}>
+
+            <button
+              className="book-ticket-btn"
+              onClick={() => handleBook(ticket)}
+            >
               Book ticket
             </button>
           </div>
