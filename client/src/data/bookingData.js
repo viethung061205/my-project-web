@@ -9,14 +9,13 @@ const bookingConfig = {
       "https://i.pinimg.com/1200x/3a/5c/64/3a5c64e948e3069e7cb27edc8aaea376.jpg",
       "https://i.pinimg.com/736x/23/d1/da/23d1da8b6d24203751ca4017841cb2fb.jpg",
     ],
-    mapUrl: "https://www.google.com/maps/place/Disneyland+Paris/@48.8673858,2.783593,17z/data=!3m1!4b1!4m6!3m5!1s0x47e61d19ca7ae2bd:0x57faf8cb6310e660!8m2!3d48.8673858!4d2.783593!16s%2Fg%2F1211qgxn?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D",
-    time: "Time: 09:30 - 23:00 (Local time)",
+    mapUrl:
+      "https://www.google.com/maps/place/Disneyland+Paris/@48.8673858,2.783593,17z",
+    time: "09:30 - 23:00 (Local time)",
     locationText: "Disneyland Paris, Boulevard de Parc, Coupvray, France",
     terms: "Children under 3 are free. Valid passport required.",
-    basePrice: "2.600.000 VND",
-    originalPrice: "2.880.000 VND",
-    checkoutType: "france"
   },
+
   tokyo: {
     name: "Disneyland Tokyo",
     bannerImages: [
@@ -27,14 +26,13 @@ const bookingConfig = {
       "https://i.pinimg.com/736x/dc/45/9d/dc459d2617eb4ddb1fae1212a291c93d.jpg",
       "https://khamphanhatban.net/wp-content/uploads/2025/06/Tokyo-Disneyland-1.jpg",
     ],
-    mapUrl: "https://www.google.com/maps/search/disneyland+tokyo/@35.6328964,139.8803943,16z?entry=ttu&g_ep=EgoyMDI1MTAwO",
-    time: "Time: 9:30 - 23:00 (Local time)",
+    mapUrl:
+      "https://www.google.com/maps/search/disneyland+tokyo/@35.6328964,139.8803943,16z",
+    time: "09:30 - 23:00 (Local time)",
     locationText: "Tokyo Disneyland, 1-1 Maihama, Urayasu, Japan",
     terms: "ID required for all guests. Tickets non-refundable.",
-    basePrice: "2.600.000 VND",
-    originalPrice: "2.880.000 VND",
-    checkoutType: "japan"
   },
+
   california: {
     name: "Disneyland California",
     bannerImages: [
@@ -45,14 +43,14 @@ const bookingConfig = {
       "https://i.pinimg.com/1200x/ea/a7/4f/eaa74ff0b1df9cca801cd97ec05d4ca5.jpg",
       "https://i.pinimg.com/1200x/60/91/50/60915013750083db56ce8eca9243eb7d.jpg",
     ],
-    mapUrl: "https://www.google.com/maps/place/Disneyland+California/data=!4m2!3m1!1s0x80dcd7d12b3b5e6b:0x2ef62f8418225cfa?sa=X&ved=1t:155783&ictx=111",
-    time: "Time: 9:30 - 23:00 (Local time)",
-    locationText: "Disneyland Resort,  Anaheim, California, United States",
+    mapUrl:
+      "https://www.google.com/maps/place/Disneyland+California",
+    time: "09:30 - 23:00 (Local time)",
+    locationText:
+      "Disneyland Resort, Anaheim, California, United States",
     terms: "ID required for all guests. Tickets non-refundable.",
-    basePrice: "2.600.000 VND",
-    originalPrice: "2.880.000 VND",
-    checkoutType: "america"
   },
+
   shanghai: {
     name: "Disneyland Shanghai",
     bannerImages: [
@@ -63,14 +61,14 @@ const bookingConfig = {
       "https://i.pinimg.com/736x/89/e6/7f/89e67f58dd64d82d54e04e7c66133b27.jpg",
       "https://i.pinimg.com/736x/7e/0d/48/7e0d48ba6c10c5574d88356dd48bcdb8.jpg",
     ],
-    mapUrl: "https://www.google.com/maps/place/Disneyland+Shanghai/data=!4m2!3m1!1s0x35ad876850923779:0x6a140e897da4d4ac?sa=X&ved=1t:155783&ictx=111",
-    time: "Time: 9:30 - 23:00 (Local time)",
-    locationText: "Chuansha New Town, Pudong New Area, Shanghai",
+    mapUrl:
+      "https://www.google.com/maps/place/Disneyland+Shanghai",
+    time: "09:30 - 23:00 (Local time)",
+    locationText:
+      "Chuansha New Town, Pudong New Area, Shanghai",
     terms: "ID required for all guests. Tickets non-refundable.",
-    basePrice: "2.600.000 VND",
-    originalPrice: "2.880.000 VND",
-    checkoutType: "china"
   },
+
   hongkong: {
     name: "Disneyland Hongkong",
     bannerImages: [
@@ -81,13 +79,12 @@ const bookingConfig = {
       "https://i.pinimg.com/1200x/66/6b/3b/666b3bc6ec5ea40b944a0de7ac0f8d6c.jpg",
       "https://i.pinimg.com/1200x/f5/ae/16/f5ae160fabe30db51dbf4219f64f8692.jpg",
     ],
-    mapUrl: "https://www.google.com/maps/place/Disneyland+Hongkong/data=!4m2!3m1!1s0x3403fc2f53d3953d:0x35b3af6ce4475405?sa=X&ved=1t:155783&ictx=111",
-    time: "Time: 9:30 - 23:00 (Local time)",
-    locationText: "Penny's Bay, Lantau Island, Hong Kong",
+    mapUrl:
+      "https://www.google.com/maps/place/Disneyland+Hongkong",
+    time: "09:30 - 23:00 (Local time)",
+    locationText:
+      "Penny's Bay, Lantau Island, Hong Kong",
     terms: "ID required for all guests. Tickets non-refundable.",
-    basePrice: "2.600.000 VND",
-    originalPrice: "2.880.000 VND",
-    checkoutType: "hongkong"
   },
 };
 

@@ -90,6 +90,10 @@ exports.dangnhap = (req, res) => {
           id: user.id,
           hoten: user.hoten,
           email: user.email,
+          sdt: user.sdt,
+          ngaysinh: user.ngaysinh,
+          gioitinh: user.gioitinh,
+          diachi: user.diachi,
         },
       });
     }
@@ -106,7 +110,8 @@ exports.guiOTP = (req, res) => {
 
   db.query("SELECT id FROM users WHERE email = ?", [email], (err, result) => {
     if (err) return res.status(500).json({ message: "Server error" });
-    if (result.length === 0) return res.status(404).json({ message: "Email does not exist" });
+    if (result.length === 0)
+      return res.status(404).json({ message: "Email does not exist" });
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
@@ -115,7 +120,8 @@ exports.guiOTP = (req, res) => {
       "INSERT INTO password_otps (email, otp, expires_at) VALUES (?, ?, ?)",
       [email, otp, expiresAt],
       async (insertErr) => {
-        if (insertErr) return res.status(500).json({ message: "Database error" });
+        if (insertErr)
+          return res.status(500).json({ message: "Database error" });
 
         const transporter = nodemailer.createTransport({
           service: "gmail",

@@ -32,8 +32,14 @@ const Login = () => {
         return;
       }
 
+      // ✅ LƯU TOKEN
       if (data.token) {
         localStorage.setItem("token", data.token);
+      }
+
+      // ✅ LƯU THÔNG TIN USER (QUAN TRỌNG)
+      if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
       }
 
       setShowPopup(true);

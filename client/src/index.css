@@ -441,7 +441,6 @@ body, html {
   background-color: #142965;
   color: white;
   font-family: 'Mouse Memoirs';
-  
 }
 
 .about-banner {
@@ -551,6 +550,8 @@ body, html {
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
+
+
 
 /*Login.css*/
 .login-container {
@@ -826,7 +827,6 @@ body, html {
   background-color: #0056b3;
 }
 
-/* Modal style giống hình bạn gửi */
 .modal {
   position: fixed;
   top: 0;

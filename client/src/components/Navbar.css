@@ -42,3 +42,19 @@
   background-color: #fff;
   margin: 0 -20px;
 }
+
+.logout-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: "Mouse Memoirs";
+  font-size: 30px;
+  color: #737373;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.logout-btn:hover {
+  color: #0056b3;
+}

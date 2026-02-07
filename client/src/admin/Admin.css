@@ -1,0 +1,590 @@
+/*AdminLogin.css*/
+.admin-login-page {
+  background-image: url("https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_3000,h_1682/activities/q98c5texsxp7rhbr0mxx/V%C3%A9ShanghaiDisneyland%E1%BB%9FTh%C6%B0%E1%BB%A3ngH%E1%BA%A3i-KlookVi%E1%BB%87tNam.jpg"); /* hoặc dùng ảnh bạn gửi */
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-login-box {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 550px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.admin-login-box h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.admin-login-box label {
+  display: block;
+  text-align: left;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 23px;
+  color: black;
+}
+
+.admin-login-box input {
+  width: 100%;
+  padding: 10px 16px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  border: 2px solid black;
+  font-size: 18px;
+}
+
+.admin-login-box button {
+  margin-top: 5px;
+  padding: 3px 25px;
+  background-color: #768dda;
+  color: black;
+  border: 2px solid black;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100px;
+  font-size: 25px;
+}
+
+.admin-login-box button:hover {
+  color: black;
+  background-color: #4d6bcb;
+}
+
+.admin-error {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+
+
+/*AdminDashboard.css*/
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Libre Baskerville;
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+  background: #1f3eaa;
+  color: white;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.admin-sidebar.open {
+  width: 300px;
+}
+
+.admin-sidebar.close {
+  width: 60px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #5170ff;
+  transition: 0.3s;
+}
+
+.sidebar-header .logo-text {
+  font-size: 25px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.admin-sidebar.close .sidebar-header .logo-text {
+  opacity: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+  cursor: pointer;
+  font-size: 25px;
+  margin-right: 18px;
+  margin-left: 3px;
+}
+
+/* MENU LIST */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+}
+
+.sidebar-menu li {
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  font-size: 18px;
+}
+
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: background 0.1s ease;
+}
+
+.sidebar-menu li:hover {
+  background: #768dda;
+  font-weight: bold;
+}
+
+/* MENU ICON STYLE */
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 15px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.admin-sidebar.close .sidebar-menu li span {
+  display: none;
+}
+
+/* MAIN */
+.admin-main {
+  flex: 1;
+  background-color: white;
+}
+
+/* HEADER */
+.admin-header {
+  height: 65px;
+  background: #768dda;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.admin-user {
+  display: flex;
+  gap: 20px; 
+  align-items: center;
+  margin-right: 15px;
+}
+
+.admin-icon-1 {
+  width: 45px;
+  height: 45px;
+  object-fit: fill;
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  background-color: #1f3eaa;
+}
+
+.admin-icon-1 img{
+  width: 35px;
+  height: 35px;
+}
+
+.admin-icon-2 {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  background-color: #1f3eaa;
+}
+
+/* TOP STATS */
+.dashboard-top {
+  display: flex;
+  gap: 30px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.stat-box {
+  background: #1f3eaa;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+}
+
+.stat-box p {
+  font-size: 20px;
+  text-align: left;
+}
+
+.stat-box span {
+  font-size: 15px;
+  display: block;
+  text-align: right;
+  margin-top: 8px;
+}
+
+.stat-box h1 {
+  font-size: 65px;
+  margin-top: 5px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+/* BEST SELLER */
+.best-seller-box {
+  background: #768edb;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 12px 15px;
+  color: white;
+}
+
+.best-seller-box h3 {
+  font-size: 22px;
+}
+
+.best-seller-box h3:last-of-type {
+  margin-top: 20px;
+}
+
+.best-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #768edb;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.best-row img {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  object-position: 50% 25%;
+  border-radius: 10px;
+}
+
+.best-row p {
+  font-size: 28px;
+  font-weight: 550;
+}
+
+.total-box {
+  margin-left: auto;
+  text-align: center;
+  color: black;
+}
+
+.total-box span {
+  font-size: 15px;
+  color: white;
+}
+
+.total-box h2{
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px 0px;
+  font-size: 60px;
+  margin-top: 5px;
+}
+
+/* AI BOX */
+.ai-box {
+  background: #768edb;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin: 15px;
+  color: white;
+}
+
+.ai-box h3 {
+  font-size: 22px;
+}
+
+.ai-box h4 {
+  font-size: 15px;
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.ai-box h1 {
+  font-size: 65px;
+}
+
+.ai-row {
+  display: flex;
+  justify-content: space-between;
+  background: #768edb;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-right: 60px;
+}
+
+.ai-row p {
+  font-size: 24px;
+}
+
+.ai-row span {
+  background: white;
+  color: black;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 10px;
+}
+
+
+
+/*BookingManagement.css*/
+.booking-manage {
+  background: #6f86d6;
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* ========== COMMON BOX ========== */
+.box {
+  background: #7f95dc;
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 22px;
+}
+
+.box h3 {
+  margin-bottom: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   KHUNG 1: NUMBERS OF BOOKING IN EACH PARK
+   IMAGE LEFT – 4 TICKET TYPES RIGHT
+   ===================================================== */
+
+.park-box-horizontal {
+  display: flex;
+  gap: 18px;
+  background: #889ee3;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  align-items: center;
+}
+
+/* ===== PARK IMAGE ===== */
+.park-img {
+  width: 150px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== RIGHT CONTENT ===== */
+.park-info {
+  flex: 1;
+  color: white;
+}
+
+/* PARK NAME */
+.park-info h4 {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+}
+
+/* TOTAL IN YESTERDAY */
+.sub {
+  font-size: 11px;
+  opacity: 0.85;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ===== TICKET ROW ===== */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* TICKET NAME */
+.row span:first-child {
+  max-width: 75%;
+  line-height: 1.4;
+}
+
+/* TICKET COUNT BADGE */
+.count {
+  background: white;
+  color: #333;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-weight: bold;
+  min-width: 38px;
+  text-align: center;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== RESPONSIVE (KHUNG 1) ===== */
+@media (max-width: 768px) {
+  .park-box-horizontal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .park-img {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+/* =====================================================
+   KHUNG 2: UPDATE PRICE OF TICKET
+   ===================================================== */
+
+.update-row {
+  display: flex;
+  gap: 12px;
+  background: #889ee3;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.update-row img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.update-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-info p {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.update-row input {
+  width: 220px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 6px;
+}
+
+.update-row button {
+  margin-top: 6px;
+  padding: 6px 16px;
+  background: #3046b4;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.update-row button:hover {
+  background: #2237a6;
+}
+
+/* =====================================================
+   KHUNG 3: UPDATE MORE TICKET
+   ===================================================== */
+
+.box input,
+.box select {
+  width: 260px;
+  padding: 7px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.box select {
+  background: white;
+  color: #333;
+}
+
+.box button {
+  padding: 8px 24px;
+  background: #3046b4;
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.box button:hover {
+  background: #2237a6;
+}
+
+/* =====================================================
+   KHUNG 4: STATUS OF PAYMENT
+   ===================================================== */
+
+.status-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  flex: 1;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status strong {
+  font-size: 36px;
+}
+
+.status.success {
+  background: #22c55e;
+}
+
+.status.fail {
+  background: #ef4444;
+}

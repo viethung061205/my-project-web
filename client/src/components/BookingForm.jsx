@@ -1,84 +1,177 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import "./BookingForm.css"; // nhớ import file css mới
+import "./BookingForm.css";
 
 const BookingForm = () => {
   const { location: locationId } = useParams();
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [note, setNote] = useState("");
+  const [userData, setUserData] = useState({
+    hoten: "",
+    ngaysinh: "",
+    gioitinh: "Other",
+    diachi: "",
+    sdt: "",
+    email: ""
+  });
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const loggedInUser = JSON.parse(storedUser);
+
+      let formattedDate = "";
+      if (loggedInUser.ngaysinh) {
+        const dateObj = new Date(loggedInUser.ngaysinh);
+        const year = dateObj.getFullYear();
+        const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+        const day = String(dateObj.getDate()).padStart(2, '0');
+        formattedDate = `${year}-${month}-${day}`;
+      }
+
+      let genderMap = "Other";
+      if (loggedInUser.gioitinh === "Nam" || loggedInUser.gioitinh === "Male") {
+        genderMap = "Male";
+      } else if (loggedInUser.gioitinh === "Nữ" || loggedInUser.gioitinh === "Female") {
+        genderMap = "Female";
+      }
+
+      setUserData({
+        hoten: loggedInUser.hoten || "",
+        email: loggedInUser.email || "",
+        sdt: loggedInUser.sdt || "",
+        diachi: loggedInUser.diachi || "",
+        gioitinh: genderMap,
+        ngaysinh: formattedDate
+      });
+    }
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
 
   const handleContinue = () => {
-    if (!fullName || !phone || !email) {
-      alert("Please fill in all required fields.");
+    if (!userData.hoten || !userData.email || !userData.sdt) {
+      alert("Please fill in all required fields (*)");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(userData.email)) {
+      alert("Invalid email format!");
+      return;
+    }
+
+    if (!/^\d{9,11}$/.test(userData.sdt)) {
+      alert("Phone number must contain 9–11 digits!");
       return;
     }
 
     navigate(`/booking/${locationId}/confirm`, {
       state: {
         ...state,
-        customerInfo: { title, fullName, phone, email, note },
+        customerInfo: userData,
       },
     });
   };
 
   return (
     <div className="home">
-    <div className="form-wrapper">
-      <div className="form-header">
-        <h2>My Reservations</h2>
-        <p>Fill in the information and review your reservation</p>
-        <div className="login-box">
-          <img src="/gift.png" alt="Gift Icon" />
-          <div>
-            <strong>Log in or register to book tickets easily and get more benefits!</strong>
-            <ul>
-              <li>Quickly fill in information with Saved Passenger Details</li>
-              <li>Enjoy exclusive deals, earn Traveloka Points and manage your bookings with ease</li>
-            </ul>
-            <a href="/login">Log in or register</a>
+      <div className="form-wrapper">
+        <div className="form-header">
+          <h2>Booking Information Confirmation</h2>
+          <p>Please review or update your member information</p>
+        </div>
+
+        <div className="form-body">
+          <h3>Customer Information</h3>
+
+          <div className="input-row">
+            <label>Full Name <span>*</span></label>
+            <input
+              type="text"
+              name="hoten"
+              value={userData.hoten}
+              onChange={handleChange}
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          <div className="two-cols">
+            <div className="input-row">
+              <label>Phone Number <span>*</span></label>
+              <input
+                type="text"
+                name="sdt"
+                value={userData.sdt}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="input-row">
+              <label>Gender</label>
+              <select
+                name="gioitinh"
+                value={userData.gioitinh}
+                onChange={handleChange}
+              >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="input-row">
+            <label>Email <span>*</span></label>
+            <input
+              type="email"
+              name="email"
+              value={userData.email}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-row">
+            <label>Date of Birth</label>
+            <input
+              type="date"
+              name="ngaysinh"
+              value={userData.ngaysinh}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-row">
+            <label>Address</label>
+            <textarea
+              name="diachi"
+              value={userData.diachi}
+              onChange={handleChange}
+              placeholder="Enter your address"
+            />
+          </div>
+
+          <div className="summary-box">
+            <p>
+              <strong>Note:</strong> This information will be used to issue your
+              electronic ticket. Please make sure all details are accurate.
+            </p>
+          </div>
+
+          <div className="btn-container">
+            <button className="back-btn" onClick={() => navigate(-1)}>
+              BACK
+            </button>
+            <button className="continue-btn" onClick={handleContinue}>
+              CONTINUE
+            </button>
           </div>
         </div>
       </div>
-
-      <div className="form-body">
-        <h3>Customer information</h3>
-        <label>Title <span>*</span></label>
-        <select value={title} onChange={(e) => setTitle(e.target.value)} required>
-          <option value="" disabled selected hidden></option>
-          <option value="Ms.">Ms.</option>
-          <option value="Mr.">Mr.</option>
-        </select>
-
-        <label>Full name <span>*</span></label>
-        <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="as on ID card (no accents)" required />
-
-        <label>Phone number <span>*</span></label>
-        <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Eg: +84 901234567" required />
-
-        <label>Email <span>*</span></label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Eg: email@example.com" required />
-
-        <label>Additional requirements (optional)</label>
-        <textarea value={note} onChange={(e) => setNote(e.target.value)} placeholder="Any special request..." />
-
-        <div className="summary-box">
-          <h3>SUMMARY</h3>
-          <div className="summary-content">
-            <p><strong>The cost you have to pay</strong></p>
-            <p className="highlight-text">Log in or Register to earn bonus points now! You can continue booking later as your progress is saved in the system.</p>
-            <a href="/login">Log in or Register</a>
-          </div>
-        </div>
-
-        <button className="continue-btn" onClick={handleContinue}>CONTINUE</button>
-      </div>
-    </div>
     </div>
   );
 };
